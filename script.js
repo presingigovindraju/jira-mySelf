@@ -36,6 +36,7 @@ const input = document.querySelector("input");
 
 createButton.addEventListener("click",createIssueButton);
 input.addEventListener("keyup",onEnter);
+// input.addEventListener("blur",onBlurTextarea);
 
 function createIssueButton(){
     createButton.classList.toggle("hide");
@@ -61,6 +62,8 @@ function onEnter(event){
        createCard.style.marginBottom="6px";
        const toDoContainer =document.querySelector("#toDoContainer");
        createCard.className = "card";
+       createCard.draggable="true";
+       createCard.addEventListener("dragstart",draggingStart);
        
        createCard.innerHTML =
        `<span>${textareaName} </span>
@@ -77,17 +80,6 @@ function onEnter(event){
 
 function DeleteOption(element){
     const parentDelete = element.parentNode;
-    console.log(parentDelete);
     parentDelete.remove();
 }
 
-
-const container2 =document.querySelector(".container2");
-
-container2.addEventListener("dragover",takingDragElement);
-
-function takingDragElement(event){
-    event.preventDefault();
-    // let dragElementRecived = toDoContainer > createCard ;
-
-}

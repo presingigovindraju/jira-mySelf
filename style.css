@@ -45,8 +45,8 @@ input{
 .card{
     background-color: white;
     padding: 10px 20px;
-    border-radius: 8px;
-    box-shadow: 1px 2px 3px lightgray;
+    border-radius: 2px;
+    box-shadow: 3px 4px 4px #e5e6e7;
     display: flex;
     justify-content: space-between;
     /* height: 30px; */
