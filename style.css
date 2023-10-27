@@ -12,6 +12,7 @@
     border-radius: 10px;
     margin: 15px;
     padding: 10px 20px;
+    overflow-y: auto;
 }
 
 .createStyle{
@@ -26,6 +27,7 @@
     color: #65728A;
     cursor: pointer;
     padding: 4px 8px;
+    cursor: pointer;
 }
 .createStyle:hover{
       background-color: #f2f3f4;
@@ -33,12 +35,28 @@
 .createStyle > .plusOne {
     font-size: 12px;
 }
-#textareaOne{
-    width: 100% ;
-    resize: none;
-    border: 2px solid #3382ed;
-    border-radius: 3.5px;
-    color: #65728A;
+input{
+    width: 95% ;
+    height: 40px;
+    border: 2px solid blue;
+    border-radius: 4px;
+    padding-bottom: 30px;
+}
+.card{
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 1px 2px 3px lightgray;
+    display: flex;
+    justify-content: space-between;
+    /* height: 30px; */
+    color: #182A4D;
+    cursor: pointer;
+    
+}
+.card > .sizing{
+    font-size: 14px !important;
+    padding-top: 5px;
 }
 .hide{
     display: none;

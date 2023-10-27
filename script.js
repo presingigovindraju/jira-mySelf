@@ -32,11 +32,62 @@
 // }
 
 const createButton = document.querySelector(".createStyle");
-const textareaOne = document.querySelector("#textareaOne");
+const input = document.querySelector("input");
 
 createButton.addEventListener("click",createIssueButton);
+input.addEventListener("keyup",onEnter);
 
 function createIssueButton(){
     createButton.classList.toggle("hide");
-    textareaOne.classList.toggle("hide");
+    input.classList.toggle("hide");
+    if(!input.classList.contains("hide")){
+        input.focus();
+    }
+}
+
+function onBlurTextarea(){
+    
+    createIssueButton();
+}
+
+function onEnter(event){
+    if(event.keyCode == 13){
+        let textareaName =input.value;
+
+        if(!textareaName){
+            return;
+        }
+       const createCard = document.createElement("div");
+       createCard.style.marginBottom="6px";
+       const toDoContainer =document.querySelector("#toDoContainer");
+       createCard.className = "card";
+       
+       createCard.innerHTML =
+       `<span>${textareaName} </span>
+       <i class="sizing fa-solid fa-trash" onclick="DeleteOption(this)" ></i>`;
+
+
+       toDoContainer.appendChild(createCard);
+
+       createIssueButton();
+       input.value="";
+    }
+    
+}
+
+function DeleteOption(element){
+    const parentDelete = element.parentNode;
+    console.log(parentDelete);
+    parentDelete.remove();
+}
+
+
+const container2 =document.querySelector(".container2");
+
+container2.addEventListener("dragover",takingDragElement);
+
+function takingDragElement(event){
+    event.preventDefault();
+    // let dragElementRecived = toDoContainer > createCard ;
+
 }
