@@ -10,27 +10,34 @@ let dragState = {
 
 
 
+
+
+
+
+let containers =document.querySelectorAll(".container");
+
 function draggingStart(event){
-   
-    dragState.dragElement = event.target;
+   const draggedCard = event.target;
+    dragState.dragElement = draggedCard;
     dragState.parentContainer = dragState.dragElement.parentNode;
     
 }
 
-
-
-let containers =document.getElementsByClassName("container");
-
-// containers.addEventListener("dragover",takingDragElement);
-// containers.addEventListener("drop",dropDragElement);
-function takingDragElement(event){
-   event.preventDefault();
+function takingDragOverElement(event){
+    let currentContainer = event.target.closest(".container");
+    if(dragState.parentContainer.id === currentContainer.id ){
+        
+        return;
+    }
+    event.preventDefault();
 }
-function dropDragElement(){
-    console.log("hji");
+function dropDragElement(event){
+    // console.log("hji");
+    const dropContainer = event.target.closest(".container");
+    dropContainer.appendChild(dragState.dragElement);
 }
 
 for(let i =0;i < containers.length ; i++){
-    containers[i].addEventListener("dragover",takingDragElement);
+    containers[i].addEventListener("dragover",takingDragOverElement);
     containers[i].addEventListener("drop",dropDragElement);
 }
